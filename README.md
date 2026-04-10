@@ -1,12 +1,12 @@
 
-![image alt](https://github.com/MrFaizahmed/student-management-system/blob/a995b8d3c299dc90cb49e21d97adaa6a8f7e57f1/Screenshot%202026-04-08%20193928.png)
+![image alt](https://github.com/devallasimhadri/Student-Management-System/blob/80f40e1aca0144b75f550a8ed463152db98bd6f4/Screenshot%202026-04-08%20193928.png)
 
 
-![image alt](https://github.com/devallasimhadri/Student-Management-System/blob/495ea43bf5c3e9371c58a3991fdeabab4341f3ea/Screenshot%202026-04-10%20102516.png)
+![image alt](https://github.com/devallasimhadri/Student-Management-System/blob/80f40e1aca0144b75f550a8ed463152db98bd6f4/Screenshot%202026-04-10%20102516.png)
 
-![image alt](https://github.com/MrFaizahmed/student-management-system/blob/c00338c384b9e2549974d73e9c5f8a6eeb2dcfc7/Screenshot%202026-04-08%20194123.png)
+![image alt](https://github.com/devallasimhadri/Student-Management-System/blob/80f40e1aca0144b75f550a8ed463152db98bd6f4/Screenshot%202026-04-08%20194123.png)
 
-![image alt](https://github.com/MrFaizahmed/student-management-system/blob/4b5404af1e55d7e8ca5a762aa65e5a67f326c52d/Screenshot%202026-04-08%20194140.png)
+![image alt](https://github.com/devallasimhadri/Student-Management-System/blob/80f40e1aca0144b75f550a8ed463152db98bd6f4/Screenshot%202026-04-10%20124257.png)
 
 
 
