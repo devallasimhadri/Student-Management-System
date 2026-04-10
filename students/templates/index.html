@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System - Professional</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --light-bg: #ecf0f1;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .main-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 25px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .header-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .header-section h2 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .user-info {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .form-section {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .form-control, .form-select {
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            padding: 12px 20px;
+            font-size: 14px;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .table-section {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .table {
+            margin-bottom: 0;
+        }
+        
+        .table thead {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #f8f9fa;
+        }
+        
+        .table-hover tbody tr:hover {
+            background-color: #e3f2fd;
+            transform: scale(1.01);
+            transition: all 0.2s ease;
+        }
+        
+        .action-btns .btn {
+            margin-right: 5px;
+            border-radius: 8px;
+            padding: 8px 15px;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            border: none;
+            color: white;
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            border: none;
+            color: white;
+        }
+        
+        .btn-logout {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-logout:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #95a5a6;
+        }
+        
+        .empty-state i {
+            font-size: 80px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+        
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 15px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                border-radius: 15px;
+            }
+            
+            .header-section {
+                padding: 20px 15px;
+                border-radius: 12px;
+            }
+            
+            .header-section h2 {
+                font-size: 20px;
+            }
+            
+            .user-info {
+                flex-direction: column;
+                gap: 10px;
+                align-items: stretch;
+                text-align: center;
+            }
+            
+            .form-section {
+                padding: 20px 15px;
+                border-radius: 12px;
+            }
+            
+            .form-section h4 {
+                font-size: 16px;
+            }
+            
+            .table-section {
+                border-radius: 12px;
+            }
+            
+            .table-section h4 {
+                font-size: 16px;
+            }
+            
+            /* Mobile table improvements */
+            .table {
+                font-size: 13px;
+            }
+            
+            .table th, .table td {
+                padding: 10px 8px;
+                vertical-align: middle;
+            }
+            
+            .action-btns .btn {
+                padding: 6px 10px;
+                font-size: 11px;
+                margin-right: 3px;
+            }
+            
+            .badge {
+                font-size: 11px;
+                padding: 5px 8px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-section h2 {
+                font-size: 18px;
+            }
+            
+            .col-md-3, .col-md-2 {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            .btn-primary {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            /* Make table scrollable horizontally on small screens */
+            .table-section {
+                overflow-x: auto;
+            }
+            
+            .table {
+                min-width: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-container">
+            <!-- Header Section -->
+            <div class="header-section">
+                <h2><i class="fas fa-graduation-cap"></i> Student Management System</h2>
+                <div class="user-info">
+                    <span><i class="fas fa-user-circle"></i> Welcome, {{ request.user.username }}</span>
+                    <form action="/accounts/logout/" method="POST" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-logout">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Add Student Form -->
+            <div class="form-section">
+                <h4 class="mb-4"><i class="fas fa-user-plus"></i> Add New Student</h4>
+                <form method="POST" class="row g-3">
+                    {% csrf_token %}
+                    <div class="col-md-2">
+                        <label class="form-label">Student Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter full name" required>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" name="email" class="form-control" placeholder="Enter email" required>
+                    </div>
+
+                    <div class="col-md-1">
+                        <label class="form-label">Age</label>
+                        <input type="number" name="age" class="form-control" placeholder="Age" value="18" required>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" name="phone" class="form-control" placeholder="Enter phone">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="form-label">Course Name</label>
+                        <input type="text" name="course" class="form-control" placeholder="Enter course" required>
+                    </div>
+
+                    <div class="col-md-2 d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-plus-circle"></i> Add Student
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Student List Table -->
+            <div class="table-section">
+                <div class="p-3 bg-light">
+                    <h4 class="mb-0"><i class="fas fa-users"></i> Student List</h4>
+                </div>
+                {% if students %}
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                            <th>Phone</th>
+                            <th>Course</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in students %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td><strong>{{ student.StdName }}</strong></td>
+                            <td>{{ student.StdEmail }}</td>
+                            <td>{{ student.StdAge }} years</td>
+                            <td>{{ student.StdPhone|default:"N/A" }}</td>
+                            <td><span class="badge bg-primary">{{ student.course.CourseName }}</span></td>
+                            <td class="action-btns">
+                                <a href="/edit/{{ student.StdID }}/" class="btn btn-warning">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <a href="/delete/{{ student.StdID }}/" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this student?')">
+                                    <i class="fas fa-trash"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <div class="empty-state">
+                    <i class="fas fa-inbox"></i>
+                    <h4>No Students Added Yet</h4>
+                    <p>Start by adding your first student using the form above.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
